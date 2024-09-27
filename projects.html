@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Valentine - Projects</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background: #f0f0f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4B0082;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+      background-color: #4B0082;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    /* Main Section */
+    .main {
+      padding: 40px;
+      text-align: center;
+      flex: 1; /* Allows the main section to grow and push footer to the bottom */
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #4B0082;
+      margin-bottom: 20px;
+    }
+
+    .projects-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .project-item {
+      font-size: 20px;
+      margin: 20px 0;
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+      color: #4B0082;
+      transition: color 0.3s;
+    }
+
+    .project-item:hover {
+      color: #7B68EE;
+    }
+
+    .tap-to-view {
+      font-size: 14px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 5px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #4B0082;
+      color: #fff;
+    }
+
+    /* Media Queries for Small Screens */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .projects-list li {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .projects-list li {
+        font-size: 16px;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">Grace Valentine</div>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About Me</a></li>
+        <li><a href="./experience.html">Experience</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./education.html">Education</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section class="main">
+    <h1>Projects</h1>
+    <ul class="projects-list">
+      <li class="project-item" onclick="openModal('poem1')">Whispers of the Night</li>
+      <span class="tap-to-view">Tap to view the poem</span>
+      <li class="project-item" onclick="openModal('poem2')">Dancing Raindrops</li>
+      <span class="tap-to-view">Tap to view the poem</span>
+      <li class="project-item" onclick="openModal('poem3')">Journey to the Stars</li>
+      <span class="tap-to-view">Tap to view the poem</span>
+      <li class="project-item" onclick="openModal('poem4')">Embrace the Silence</li>
+      <span class="tap-to-view">Tap to view the poem</span>
+      <li class="project-item" onclick="openModal('poem5')">A Heart's Melody</li>
+      <span class="tap-to-view">Tap to view the poem</span>
+    </ul>
+  </section>
+
+  <!-- Modal for Poems -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="poem-title"></h2>
+      <p id="poem-content"></p>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Grace Valentine</p>
+    <div class="social-icons">
+      <a href="https://wa.me/254797823720"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/gracevalentine"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/gracevalentine"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Function to open modal and display poem content
+    function openModal(poem) {
+      const modal = document.getElementById('modal');
+      const title = document.getElementById('poem-title');
+      const content = document.getElementById('poem-content');
+
+      // Define poem titles and contents
+      const poems = {
+        poem1: {
+          title: "Whispers of the Night",
+          content: "In the quiet of the night, whispers take flight,\nDreams intertwine, casting shadows of light.\nStars twinkle softly, secrets to share,\nA lullaby of silence fills the cool night air."
+        },
+        poem2: {
+          title: "Dancing Raindrops",
+          content: "Raindrops fall gently, a rhythmic embrace,\nNature's own dance, a delicate grace.\nEach drop tells a story, a journey to tell,\nIn puddles they gather, like magic, they swell."
+        },
+        poem3: {
+          title: "Journey to the Stars",
+          content: "Take my hand, let's soar high,\nThrough the cosmos, we will fly.\nGalaxies twirl, in the vastness so wide,\nIn the arms of the universe, we'll abide."
+        },
+        poem4: {
+          title: "Embrace the Silence",
+          content: "In silence we find, a moment so pure,\nA sanctuary of peace, our hearts feel secure.\nWith every breath taken, tranquility grows,\nIn the hush of the world, our true self shows."
+        },
+        poem5: {
+          title: "A Heart's Melody",
+          content: "In the depths of a heart, a melody plays,\nSoft and sweet, it gently sways.\nEach note a whisper, a tale to unfold,\nIn the symphony of life, love is the gold."
+        }
+      };
+
+      // Set the modal content based on the selected poem
+      title.innerText = poems[poem].title;
+      content.innerText = poems[poem].content;
+      modal.style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>

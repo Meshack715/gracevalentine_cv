@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Grace Valentine</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background: #f0f0f5;
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4B0082; /* Soft lavender tone */
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+      background-color: #4B0082;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #4B0082;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* Skills Section */
+    .skills {
+      margin: 20px 0;
+    }
+
+    .skill {
+      display: inline-block;
+      background-color: #4B0082;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #4B0082;
+      color: #fff;
+    }
+
+    /* Return Button */
+    .return-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4B0082;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .return-button:hover {
+      background-color: #663399;
+    }
+
+    /* Media Queries for Small Screens */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .about {
+        padding: 20px 5%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .skill {
+        margin: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .return-button {
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">Grace Valentine</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="./education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <h1>About Me</h1>
+    <p>Hello! I’m Grace Valentine, a dedicated hospitality manager experience in providing exceptional service in luxury hotels and resorts. My passion for creating memorable guest experiences drives me to continuously improve and innovate in the hospitality sector.</p>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill">Customer Service</span>
+      <span class="skill">Team Leadership</span>
+      <span class="skill">Event Management</span>
+      <span class="skill">Budgeting</span>
+      <span class="skill">Marketing Strategies</span>
+      <span class="skill">Crisis Management</span>
+    </div>
+
+    <p>I believe that success in hospitality comes from a deep understanding of guests' needs and a commitment to excellence. I'm excited to share my journey and expertise with you!</p>
+    
+    <a href="index.html" class="return-button">Return to Home</a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Grace Valentine</p>
+    <div class="social-icons">
+      <a href="https://wa.me/254797823720"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/gracevalentine"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/gracevalentine"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

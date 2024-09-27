@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Valentine - Experience</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      background: #f0f0f5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4B0082;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+      background-color: #4B0082;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    /* Main Section */
+    .main {
+      flex: 1;
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #4B0082;
+      margin-bottom: 20px;
+    }
+
+    .experience-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .experience-item {
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .experience-title {
+      font-size: 24px;
+      color: #4B0082;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .experience-date {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .experience-description {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .achievements {
+      font-size: 16px;
+      color: #4B0082;
+      margin-left: 20px;
+    }
+
+    .referees {
+      display: none;
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .referee-item {
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+
+    .referee-link {
+      color: #4B0082; /* Change this to your desired color */
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold; /* Optional: Makes the text bold */
+    }
+
+    .referee-link:hover {
+      color: #FF4500; /* Optional: Change color on hover for better visibility */
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding: 20px 5%;
+      background-color: #4B0082;
+      color: #fff;
+    }
+
+    /* Media Queries for Small Screens */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .main {
+        padding: 20px 5%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .experience-list li {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul li a {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .experience-list li {
+        font-size: 16px;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 10px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">Grace Valentine</div>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about_me.html">About Me</a></li>
+        <li><a href="./experience.html">Experience</a></li>
+        <li><a href="./projects.html">Projects</a></li>
+        <li><a href="./skills.html">Skills</a></li>
+        <li><a href="./education.html">Education</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section class="main">
+    <h1>Experience</h1>
+    <ul class="experience-list">
+      <li class="experience-item">
+        <div class="experience-title">Hospitality Manager at XYZ Hotel 
+          <i class="fas fa-eye" onclick="toggleReferees('referees1')" style="cursor: pointer;"></i>
+        </div>
+        <div class="experience-date">(2020 - Present)</div>
+        <div class="experience-description">
+          Responsible for overseeing daily operations, managing staff, and ensuring customer satisfaction.
+        </div>
+        <div class="achievements">
+          <ul>
+            <li>Increased customer satisfaction ratings by 25%.</li>
+            <li>Implemented training programs for staff development.</li>
+            <li>Organized successful promotional events increasing bookings by 30%.</li>
+          </ul>
+        </div>
+        <div class="referee-link" onclick="toggleReferees('referees1')">Click here to view referees</div>
+        <div id="referees1" class="referees">
+          <div class="referee-item">John Doe - Manager, XYZ Hotel (Email: john.doe@xyzhotel.com)</div>
+          <div class="referee-item">Jane Smith - HR, XYZ Hotel (Email: jane.smith@xyzhotel.com)</div>
+        </div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-title">Event Coordinator at ABC Events 
+          <i class="fas fa-eye" onclick="toggleReferees('referees2')" style="cursor: pointer;"></i>
+        </div>
+        <div class="experience-date">(2018 - 2020)</div>
+        <div class="experience-description">
+          Coordinated events from inception to completion, ensuring high-quality execution and customer satisfaction.
+        </div>
+        <div class="achievements">
+          <ul>
+            <li>Managed over 50 successful events, ranging from corporate functions to weddings.</li>
+            <li>Developed strong relationships with vendors and clients.</li>
+            <li>Achieved a 90% repeat customer rate.</li>
+          </ul>
+        </div>
+        <div class="referee-link" onclick="toggleReferees('referees2')">Click here to view referees</div>
+        <div id="referees2" class="referees">
+          <div class="referee-item">Alice Johnson - Director, ABC Events (Email: alice.johnson@abcevents.com)</div>
+          <div class="referee-item">Bob Brown - Assistant, ABC Events (Email: bob.brown@abcevents.com)</div>
+        </div>
+      </li>
+      <li class="experience-item">
+        <div class="experience-title">Customer Service Representative at DEF Company 
+          <i class="fas fa-eye" onclick="toggleReferees('referees3')" style="cursor: pointer;"></i>
+        </div>
+        <div class="experience-date">(2016 - 2018)</div>
+        <div class="experience-description">
+          Provided exceptional customer service and resolved customer inquiries in a timely manner.
+        </div>
+        <div class="achievements">
+          <ul>
+            <li>Recognized for outstanding customer service by receiving Employee of the Month twice.</li>
+            <li>Improved response time for customer inquiries by 40%.</li>
+            <li>Trained new hires on customer service protocols.</li>
+          </ul>
+        </div>
+        <div class="referee-link" onclick="toggleReferees('referees3')">Click here to view referees</div>
+        <div id="referees3" class="referees">
+          <div class="referee-item">Chris Green - Supervisor, DEF Company (Email: chris.green@defcompany.com)</div>
+          <div class="referee-item">Samantha White - Manager, DEF Company (Email: samantha.white@defcompany.com)</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Grace Valentine. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleReferees(refereeId) {
+      const referees = document.getElementById(refereeId);
+      referees.style.display = referees.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

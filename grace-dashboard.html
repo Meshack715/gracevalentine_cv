@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Grace Valentine</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6c63ff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card i {
+      font-size: 48px;
+      color: #6c63ff;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6c63ff;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .visitor-list {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .visitor-list h3 {
+      margin-bottom: 15px;
+    }
+
+    .visitor {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .visitor:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dashboard Header -->
+  <header>
+    <h1>Grace Valentine - Dashboard</h1>
+  </header>
+
+  <!-- Dashboard Cards -->
+  <div class="dashboard-container">
+    <!-- Website Visitors -->
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>Website Visitors</h3>
+      <p id="visitor-count">0</p>
+      <p id="entry-time" style="margin: 5px 0;">Entry Time: N/A</p>
+      <p id="exit-time" style="margin: 5px 0;">Exit Time: N/A</p>
+    </div>
+
+    <!-- Performance Card -->
+    <div class="card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Performance</h3>
+      <p>Under Development</p>
+    </div>
+  </div>
+
+  <!-- Visitor List -->
+  <div class="visitor-list">
+    <h3>Visitor Records</h3>
+    <div id="visitor-records"></div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 Grace Valentine</p>
+  </footer>
+
+  <script>
+    // Initialize visitor count and visitors list in local storage
+    if (!localStorage.getItem("visitors")) {
+      localStorage.setItem("visitorCount", 0);
+      localStorage.setItem("visitors", JSON.stringify([])); // Initialize an empty array for visitors
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Retrieve visitors from local storage
+      let visitors = JSON.parse(localStorage.getItem("visitors"));
+      let visitorCount = visitors.length;
+
+      // Update visitor count on the dashboard
+      document.getElementById('visitor-count').innerText = visitorCount;
+
+      // Record entry time
+      const entryTime = new Date().toLocaleString();
+      document.getElementById('entry-time').innerText = `Entry Time: ${entryTime}`;
+
+      // Generate a unique visitor ID
+      const visitorId = visitorCount + 1;
+
+      // Add visitor to the local storage
+      visitors.push({ id: visitorId, entryTime: entryTime, exitTime: 'N/A' });
+      localStorage.setItem("visitors", JSON.stringify(visitors));
+
+      // Update the visitor records display
+      updateVisitorRecords(visitors);
+
+      // Record exit time on unload
+      window.addEventListener("beforeunload", function () {
+        const exitTime = new Date().toLocaleString();
+        document.getElementById('exit-time').innerText = `Exit Time: ${exitTime}`;
+
+        // Update the exit time for the visitor
+        visitors[visitorCount].exitTime = exitTime;
+        localStorage.setItem("visitors", JSON.stringify(visitors));
+
+        // Update the visitor records display again
+        updateVisitorRecords(visitors);
+      });
+    });
+
+    function updateVisitorRecords(visitors) {
+      const visitorRecords = document.getElementById('visitor-records');
+      visitorRecords.innerHTML = ''; // Clear previous records
+
+      visitors.forEach(visitor => {
+        const visitorDiv = document.createElement('div');
+        visitorDiv.className = 'visitor';
+        visitorDiv.innerHTML = `
+          <strong>Visitor ID: ${visitor.id}</strong><br>
+          Entry Time: ${visitor.entryTime}<br>
+          Exit Time: ${visitor.exitTime}
+        `;
+        visitorRecords.appendChild(visitorDiv);
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -19,7 +19,7 @@
       background: #f0f0f5;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Ensures the body takes at least full viewport height */
+      min-height: 100vh;
     }
 
     header {
@@ -63,7 +63,7 @@
     .main {
       padding: 40px 5%;
       text-align: center;
-      flex: 1; /* Allows the main section to grow and push footer to the bottom */
+      flex: 1;
     }
 
     h1 {
@@ -75,14 +75,57 @@
     /* Contact Info */
     .contact-info {
       font-size: 20px;
-      margin-bottom: 15px;
-      text-align: left; /* Align text to the left */
-      max-width: 600px; /* Limit the width for readability */
-      margin: 0 auto; /* Center the contact info block */
+      margin-bottom: 30px;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .contact-info p {
       margin: 10px 0;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #333;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    /* Form Styles */
+    .contact-form {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #4B0082;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #333;
     }
 
     /* Footer Section */
@@ -104,7 +147,7 @@
       font-size: 24px;
     }
 
-    /* Media Queries for Small Screens */
+    /* Media Queries */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -165,7 +208,7 @@
         <li><a href="experience.html">Experience</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="./education.html">Education</a></li>
+        <li><a href="education.html">Education</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -175,14 +218,35 @@
   <section class="main">
     <h1>Contact Me</h1>
     <div class="contact-info">
-      <p>Email: <a href="mailto:gracevalentine655@gmail.com.com">gracevalentine655@gmail.com</a></p>
+      <p>Email: <a href="mailto:gracevalentine655@gmail.com">gracevalentine655@gmail.com</a></p>
       <p>Phone: <a href="tel:+254797823720">+254 797 823 720</a></p>
       <p>Location: Nairobi, Kenya</p>
-      <h2>Additional Contact Information:</h2>
-      <p>If you have any inquiries, feel free to reach out through the following channels:</p>
-      <p>Facebook: <a href="https://facebook.com/gracevalentine">facebook.com/gracevalentine</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/gracevalentine">linkedin.com/in/gracevalentine</a></p>
-      <p>Twitter: <a href="https://twitter.com/gracevalentine">twitter.com/gracevalentine</a></p>
+
+      <!-- Social Icons in Main Section -->
+      <div class="social-icons">
+        <a href="https://wa.me/254797823720"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://facebook.com/gracevalentine"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/gracevalentine"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/gracevalentine"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Request a Callback</h2>
+      <form action="send-email.js" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+        <button type="submit">Request Callback</button>
+      </form>
+
+      <h2>Send Me an Email</h2>
+      <form action="submit_email.php" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Email</button>
+      </form>
     </div>
   </section>
 

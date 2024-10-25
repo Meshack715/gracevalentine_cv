@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail', // e.g. 'gmail', 'outlook', etc.
     auth: {
         user: 'gracevalentine655@gmail.com', // Your email
-        pass: '@254grace' // Your email password
+        pass: '@254grace' // Your email password (or app-specific password if using 2FA)
     }
 });
 
@@ -42,6 +43,7 @@ app.post('/send-callback', (req, res) => {
     res.status(200).json({ message: 'Callback request received successfully!' });
 });
 
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

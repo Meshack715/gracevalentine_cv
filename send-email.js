@@ -1,5 +1,4 @@
 // send-email.js
-
 document.addEventListener('DOMContentLoaded', function () {
     const callbackForm = document.getElementById('callbackForm');
     const emailForm = document.getElementById('emailForm');

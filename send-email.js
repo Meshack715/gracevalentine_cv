@@ -1,36 +1,59 @@
-// api/send-email.js
-const nodemailer = require('nodemailer');
+// send-email.js
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { name, email, message } = req.body;
+document.addEventListener('DOMContentLoaded', function () {
+    const callbackForm = document.getElementById('callbackForm');
+    const emailForm = document.getElementById('emailForm');
 
-    // Create a transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      service: 'gmail', // Using Gmail
-      auth: {
-        user: process.env.GMAIL_USER, // Your Gmail address from env variables
-        pass: process.env.GMAIL_PASS, // Your Gmail password or app password
-      },
+    // Handle callback request form submission
+    callbackForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        const name = document.getElementById('callbackName').value;
+        const phone = document.getElementById('callbackPhone').value;
+
+        // Send the callback request using fetch
+        fetch('/send-callback', { // Update with your server endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, phone }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Display a success message
+            callbackForm.reset(); // Reset the form
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        });
     });
 
-    // Email options
-    let mailOptions = {
-      from: email, // User's email as sender
-      to: process.env.GMAIL_USER, // Your email to receive the message
-      subject: `Request Callback from ${name}`,
-      text: message, // The message entered by the user
-    };
+    // Handle email form submission
+    emailForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission
 
-    try {
-      // Send the email
-      await transporter.sendMail(mailOptions);
-      res.status(200).json({ success: true, message: 'Email sent successfully' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      res.status(500).json({ success: false, message: 'Failed to send email' });
-    }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
-  }
-}
+        const name = document.getElementById('emailName').value;
+        const email = document.getElementById('emailAddress').value;
+        const message = document.getElementById('emailMessage').value;
+
+        // Send the email using fetch
+        fetch('/send-email', { // Update with your server endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, message }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Display a success message
+            emailForm.reset(); // Reset the form
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        });
+    });
+});

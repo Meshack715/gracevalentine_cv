@@ -1,0 +1,25 @@
+<script>
+    document.getElementById('callback-form').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      const formData = new FormData(this); // Gather form data
+  
+      try {
+        const response = await fetch('/send-email', {
+          method: 'POST',
+          body: formData, // Send form data as body
+        });
+  
+        if (response.ok) {
+          alert('Your request has been sent!'); // Success message
+          this.reset(); // Reset form fields
+        } else {
+          alert('Error sending request. Please try again.'); // Error message
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error sending request. Please try again.'); // Error message
+      }
+    });
+  </script>
+  
